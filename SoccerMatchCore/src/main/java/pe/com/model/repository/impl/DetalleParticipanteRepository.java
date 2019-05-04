@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.DetalleParticipante;
-import pe.com.model.entity.Distrito;
 import pe.com.model.repository.IDetalleParticipanteRepository;
 @Named
 public class DetalleParticipanteRepository implements IDetalleParticipanteRepository,Serializable{

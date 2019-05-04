@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.Cancha;
-import pe.com.model.entity.Ciudad;
 import pe.com.model.repository.ICanchaRepository;
 @Named
 public class CanchaRepository implements ICanchaRepository,Serializable{

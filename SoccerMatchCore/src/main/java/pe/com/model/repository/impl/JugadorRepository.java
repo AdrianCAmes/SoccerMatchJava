@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.Jugador;
-import pe.com.model.entity.Participante;
 import pe.com.model.repository.IJugadorRepository;
 @Named
 public class JugadorRepository implements IJugadorRepository,Serializable{

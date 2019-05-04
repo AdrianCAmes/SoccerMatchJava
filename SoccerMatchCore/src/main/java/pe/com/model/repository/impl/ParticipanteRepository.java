@@ -10,8 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.Participante;
-import pe.com.model.entity.Propietario;
-import pe.com.model.entity.Usuario;
 import pe.com.model.repository.IParticipanteRepository;
 @Named
 public class ParticipanteRepository implements IParticipanteRepository,Serializable{

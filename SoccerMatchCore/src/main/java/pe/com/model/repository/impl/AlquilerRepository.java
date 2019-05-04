@@ -9,15 +9,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.Alquiler;
-import pe.com.model.entity.Calle;
 import pe.com.model.repository.IAlquilerRepository;
 
 @Named
 public class AlquilerRepository implements IAlquilerRepository,Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext(unitName="SoccerMatchPU")

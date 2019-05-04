@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.Departamento;
-import pe.com.model.entity.DetalleParticipante;
 import pe.com.model.repository.IDepartamentoRepository;
 @Named
 public class DepartamentoRepository implements IDepartamentoRepository,Serializable{

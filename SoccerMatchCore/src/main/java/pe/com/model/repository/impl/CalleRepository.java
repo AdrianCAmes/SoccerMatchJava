@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.Calle;
-import pe.com.model.entity.Cancha;
 import pe.com.model.repository.ICalleRepository;
 @Named
 public class CalleRepository implements ICalleRepository,Serializable{

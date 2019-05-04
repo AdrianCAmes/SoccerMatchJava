@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pe.com.model.entity.Ciudad;
-import pe.com.model.entity.Departamento;
 import pe.com.model.repository.ICiudadRepository;
 @Named
 public class CiudadRepository implements ICiudadRepository,Serializable{
