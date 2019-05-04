@@ -18,7 +18,7 @@ public class Propietario implements Serializable {
 	@Id
 	private Integer id;
 	
-	@JoinColumn(name = "usuario_id", nullable = false)
+	@JoinColumn(name = "id", nullable = false)
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="propietario")
 	private Usuario usuario;
 
