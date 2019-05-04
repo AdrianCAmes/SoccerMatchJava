@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="SoccerMatchPU"
+		transaction-type="JTA">
+		<!-- Datasource de MySQL -->
+		<jta-data-source>java:/SoccerMatchDS</jta-data-source>
+		<class>pe.com.model.entity.Alquiler</class>
+		<class>pe.com.model.entity.Calle</class>
+		<class>pe.com.model.entity.Cancha</class>
+		<class>pe.com.model.entity.Ciudad</class>
+		<class>pe.com.model.entity.Departamento</class>
+		<class>pe.com.model.entity.DetalleParticipante</class>
+		<class>pe.com.model.entity.Distrito</class>
+		<class>pe.com.model.entity.Equipo</class>
+		<class>pe.com.model.entity.Jugador</class>
+		<class>pe.com.model.entity.Participante</class>
+		<class>pe.com.model.entity.Propietario</class>
+		<class>pe.com.model.entity.Usuario</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+		</properties>
+	</persistence-unit>
+</persistence>
