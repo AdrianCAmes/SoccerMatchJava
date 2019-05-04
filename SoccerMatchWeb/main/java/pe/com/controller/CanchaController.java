@@ -10,8 +10,12 @@ import javax.inject.Named;
 
 import org.primefaces.event.SelectEvent;
 
+import pe.com.model.business.ICalleService;
 import pe.com.model.business.ICanchaService;
+import pe.com.model.business.IPropietarioService;
+import pe.com.model.entity.Calle;
 import pe.com.model.entity.Cancha;
+import pe.com.model.entity.Propietario;
 import pe.com.util.Message;
 
 @Named
@@ -23,10 +27,22 @@ public class CanchaController implements Serializable{
 	@Inject
 	private ICanchaService canchaService;
 	
+	@Inject
+	private ICalleService CalleService;
+	
+	@Inject
+	private IPropietarioService PropietarioService;
+	
 	private Cancha cancha;
 	private Cancha canchaSelec;
 	
 	private List<Cancha> canchas;
+	
+	private Calle Calle;
+	private List<Calle> Calles;
+	
+	private Propietario Propietario;
+	private List<Propietario> Propietarios;
 	
 	@PostConstruct
 	public void init() {
@@ -49,8 +65,10 @@ public class CanchaController implements Serializable{
 	public void saveCancha() {
 		try {
 			//if(cancha.getId() != null)
-			Message.messageInfo("Cancha guardada exitosamente");
+			cancha.setCalle(Calle);
+			cancha.setPropietario(Propietario);
 			canchaService.Insert(cancha);
+			Message.messageInfo("Cancha guardada exitosamente");
 			loadCanchas();
 			clearForm();
 		} catch (Exception e) {

@@ -10,7 +10,9 @@ import javax.inject.Named;
 
 import org.primefaces.event.SelectEvent;
 
+import pe.com.model.business.IAlquilerService;
 import pe.com.model.business.IDetalleParticipanteService;
+import pe.com.model.business.IParticipanteService;
 import pe.com.model.entity.DetalleParticipante;
 import pe.com.util.Message;
 
@@ -23,10 +25,21 @@ public class DetalleParticipanteController implements Serializable{
 	@Inject
 	private IDetalleParticipanteService DetalleParticipanteService;
 	
+	@Inject
+	private IAlquilerService AlquilerService;
+	
+	@Inject
+	private IParticipanteService ParticipanteService;
+	
 	private DetalleParticipante DetalleParticipante;
 	private DetalleParticipante DetalleParticipanteSelec;
-	
 	private List<DetalleParticipante> DetalleParticipantes;
+	
+	private Alquiler alquiler;
+	private List<Alquiler> alquilers;
+	
+	private Participante participante;
+	private List<Participante> participante;
 	
 	@PostConstruct
 	public void init() {
@@ -49,8 +62,10 @@ public class DetalleParticipanteController implements Serializable{
 	public void saveDetalleParticipante() {
 		try {
 			//if(DetalleParticipante.getId() != null)
-			Message.messageInfo("DetalleParticipante guardada exitosamente");
+			DetalleParticipante.setAlquiler(alquiler);
+			DetalleParticipante.setParticipante(participante);
 			DetalleParticipanteService.Insert(DetalleParticipante);
+			Message.messageInfo("DetalleParticipante guardada exitosamente");
 			loadDetalleParticipantes();
 			clearForm();
 		} catch (Exception e) {

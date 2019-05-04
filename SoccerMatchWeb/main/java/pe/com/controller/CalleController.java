@@ -11,7 +11,9 @@ import javax.inject.Named;
 import org.primefaces.event.SelectEvent;
 
 import pe.com.model.business.ICalleService;
+import pe.com.model.business.IDistritoService;
 import pe.com.model.entity.Calle;
+import pe.com.model.entity.Distrito;
 import pe.com.util.Message;
 
 @Named
@@ -23,10 +25,16 @@ public class CalleController implements Serializable{
 	@Inject
 	private ICalleService CalleService;
 	
+	@Inject
+	private IDistritoService DistritoService;
+	
 	private Calle Calle;
 	private Calle CalleSelec;
 	
 	private List<Calle> Calles;
+	
+	private Distrito Distrito;
+	private List<Distrito> Distritos;
 	
 	@PostConstruct
 	public void init() {
@@ -49,8 +57,9 @@ public class CalleController implements Serializable{
 	public void saveCalle() {
 		try {
 			//if(Calle.getId() != null)
-			Message.messageInfo("Calle guardada exitosamente");
+			Calle.setDistrito(Distrito);
 			CalleService.Insert(Calle);
+			Message.messageInfo("Calle guardada exitosamente");
 			loadCalles();
 			clearForm();
 		} catch (Exception e) {

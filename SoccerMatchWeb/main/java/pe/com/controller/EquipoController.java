@@ -11,6 +11,7 @@ import javax.inject.Named;
 import org.primefaces.event.SelectEvent;
 
 import pe.com.model.business.IEquipoService;
+import pe.com.model.entity.Distrito;
 import pe.com.model.entity.Equipo;
 import pe.com.util.Message;
 
@@ -23,10 +24,15 @@ public class EquipoController implements Serializable{
 	@Inject
 	private IEquipoService EquipoService;
 	
+	@Inject
+	private IDistritoService DistritoService;
+	
 	private Equipo Equipo;
 	private Equipo EquipoSelec;
-	
 	private List<Equipo> Equipos;
+	
+	private Distrito Distrito;
+	private List<Distrito> Distritos;
 	
 	@PostConstruct
 	public void init() {
@@ -49,8 +55,9 @@ public class EquipoController implements Serializable{
 	public void saveEquipo() {
 		try {
 			//if(Equipo.getId() != null)
-			Message.messageInfo("Equipo guardada exitosamente");
+			Equipo.setDistrito(Distrito);
 			EquipoService.Insert(Equipo);
+			Message.messageInfo("Equipo guardada exitosamente");
 			loadEquipos();
 			clearForm();
 		} catch (Exception e) {

@@ -10,7 +10,9 @@ import javax.inject.Named;
 
 import org.primefaces.event.SelectEvent;
 
+import pe.com.model.business.ICalleService;
 import pe.com.model.business.IJugadorService;
+import pe.com.model.entity.Calle;
 import pe.com.model.entity.Jugador;
 import pe.com.util.Message;
 
@@ -23,10 +25,16 @@ public class JugadorController implements Serializable{
 	@Inject
 	private IJugadorService JugadorService;
 	
+	@Inject
+	private ICalleService CalleService;
+	
 	private Jugador Jugador;
 	private Jugador JugadorSelec;
 	
 	private List<Jugador> Jugadors;
+	
+	private Calle Calle;
+	private List<Calle> Calles;
 	
 	@PostConstruct
 	public void init() {
@@ -49,8 +57,9 @@ public class JugadorController implements Serializable{
 	public void saveJugador() {
 		try {
 			//if(Jugador.getId() != null)
-			Message.messageInfo("Jugador guardada exitosamente");
+			Jugador.setCalle(Calle);
 			JugadorService.Insert(Jugador);
+			Message.messageInfo("Jugador guardada exitosamente");
 			loadJugadors();
 			clearForm();
 		} catch (Exception e) {

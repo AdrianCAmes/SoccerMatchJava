@@ -10,7 +10,9 @@ import javax.inject.Named;
 
 import org.primefaces.event.SelectEvent;
 
+import pe.com.model.business.ICiudadService;
 import pe.com.model.business.IDistritoService;
+import pe.com.model.entity.Ciudad;
 import pe.com.model.entity.Distrito;
 import pe.com.util.Message;
 
@@ -23,10 +25,16 @@ public class DistritoController implements Serializable{
 	@Inject
 	private IDistritoService DistritoService;
 	
+	@Inject
+	private ICiudadService CiudadService;
+	
 	private Distrito Distrito;
 	private Distrito DistritoSelec;
 	
 	private List<Distrito> Distritos;
+	
+	private Ciudad Ciudad;
+	private List<Ciudad> Ciudads;
 	
 	@PostConstruct
 	public void init() {
@@ -49,8 +57,9 @@ public class DistritoController implements Serializable{
 	public void saveDistrito() {
 		try {
 			//if(Distrito.getId() != null)
-			Message.messageInfo("Distrito guardada exitosamente");
+			Distrito.setCiudad(Ciudad);
 			DistritoService.Insert(Distrito);
+			Message.messageInfo("Distrito guardada exitosamente");
 			loadDistritos();
 			clearForm();
 		} catch (Exception e) {
