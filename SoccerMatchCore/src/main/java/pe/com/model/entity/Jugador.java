@@ -19,9 +19,9 @@ public class Jugador implements Serializable {
 
 	@Id
 	private Integer id;
-	
-	@OneToOne(cascade=CascadeType.ALL,mappedBy="jugador")
+
 	@JoinColumn(name = "usuario_id", nullable = false)
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="jugador")
 	private Usuario usuario;
 	
 	@ManyToOne
