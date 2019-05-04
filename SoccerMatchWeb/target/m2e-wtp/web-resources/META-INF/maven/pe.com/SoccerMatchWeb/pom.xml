@@ -9,6 +9,9 @@
 	</parent>
 	<artifactId>SoccerMatchWeb</artifactId>
 	<packaging>war</packaging>
+	<properties>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>javax.faces</groupId>
