@@ -37,7 +37,7 @@ public class Equipo implements Serializable{
 	@Column(name="num_participantes",length=50,nullable=false)
 	private int numParticipantes;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_juego")
 	private Date fechaJuego;
 
