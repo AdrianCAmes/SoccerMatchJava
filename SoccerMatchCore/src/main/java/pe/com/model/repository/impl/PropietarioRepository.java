@@ -1,11 +1,14 @@
 package pe.com.model.repository.impl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import pe.com.model.entity.Propietario;
 import pe.com.model.repository.IPropietarioRepository;
 @Named
@@ -37,14 +40,29 @@ public class PropietarioRepository implements IPropietarioRepository,Serializabl
 
 	@Override
 	public List<Propietario> FindAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Propietario> cursos = new ArrayList<Propietario>();
+
+		TypedQuery<Propietario> query = em.createQuery("SELECT c FROM Propietario c", Propietario.class);
+
+		cursos = query.getResultList();
+
+		return cursos;
 	}
 
 	@Override
 	public Propietario FindById(Propietario t) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		List<Propietario> cursos = new ArrayList<Propietario>();
 
+		TypedQuery<Propietario> query = em.createQuery("SELECT c FROM Propietario c WHERE c.id = ?", Propietario.class);
+		query.setParameter(1, t.getId());
+
+		cursos = query.getResultList();
+
+		if (cursos != null || !cursos.isEmpty()) {
+			return cursos.get(0);
+		} else {
+			return new Propietario();
+		
+	}
+	}
 }
