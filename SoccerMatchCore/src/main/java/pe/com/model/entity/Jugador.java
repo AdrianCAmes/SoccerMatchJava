@@ -3,6 +3,7 @@ package pe.com.model.entity;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,6 +20,7 @@ public class Jugador implements Serializable {
 	@Id
 	private Integer id;
 	
+	@JoinColumn(name = "usuario_id", nullable = false)
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="jugador")
 	private Usuario usuario;
 	
@@ -26,8 +28,20 @@ public class Jugador implements Serializable {
 	@JoinColumn(name="id_calle")
 	private Calle calle;
 
+
+	@Column(name="direccion",length=100,nullable=false)
+	private String Direccion;
+	
 	public Integer getId() {
 		return id;
+	}
+
+	public String getDireccion() {
+		return Direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		Direccion = direccion;
 	}
 
 	public void setId(Integer id) {

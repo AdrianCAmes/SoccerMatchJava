@@ -36,7 +36,7 @@ public class Cancha implements Serializable{
 	private String direccion;
 	
 	@Column(name="precio_hora")
-	private int precio_hora;
+	private int precioHora;
 
 	public int getId() {
 		return id;
@@ -78,12 +78,12 @@ public class Cancha implements Serializable{
 		this.direccion = direccion;
 	}
 
-	public int getPrecio_hora() {
-		return precio_hora;
+	public int getPrecioHora() {
+		return precioHora;
 	}
 
-	public void setPrecio_hora(int precio_hora) {
-		this.precio_hora = precio_hora;
+	public void setPrecioHora(int precio_hora) {
+		this.precioHora = precio_hora;
 	}
 	
 	
