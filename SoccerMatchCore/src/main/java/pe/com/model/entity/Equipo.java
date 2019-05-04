@@ -35,11 +35,11 @@ public class Equipo implements Serializable{
 	private String descripcion;
 	
 	@Column(name="num_participantes",length=50,nullable=false)
-	private int numparticipantes;
+	private int numParticipantes;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_juego")
-	private Date fechajuego;
+	private Date fechaJuego;
 
 	public int getId() {
 		return id;
@@ -73,20 +73,20 @@ public class Equipo implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public int getNumparticipantes() {
-		return numparticipantes;
+	public int getNumParticipantes() {
+		return numParticipantes;
 	}
 
-	public void setNumparticipantes(int numparticipantes) {
-		this.numparticipantes = numparticipantes;
+	public void setNumParticipantes(int numparticipantes) {
+		this.numParticipantes = numparticipantes;
 	}
 
-	public Date getFechajuego() {
-		return fechajuego;
+	public Date getFechaJuego() {
+		return fechaJuego;
 	}
 
-	public void setFechajuego(Date fechajuego) {
-		this.fechajuego = fechajuego;
+	public void setFechaJuego(Date fechajuego) {
+		this.fechaJuego = fechajuego;
 	}
 	
 	
