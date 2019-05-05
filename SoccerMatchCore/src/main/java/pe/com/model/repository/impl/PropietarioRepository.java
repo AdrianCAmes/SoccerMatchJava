@@ -49,6 +49,7 @@ public class PropietarioRepository implements IPropietarioRepository,Serializabl
 		return cursos;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Propietario FindById(Propietario t) throws Exception {
 		List<Propietario> cursos = new ArrayList<Propietario>();

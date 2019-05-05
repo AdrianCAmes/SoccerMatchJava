@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,13 +23,11 @@ public class Usuario implements Serializable {
 	private Integer id;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@MapsId
-	@JoinColumn(name="id",nullable=false)
+	@JoinColumn(name="id_jugador",nullable=false)
 	private Jugador jugador;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@MapsId
-	@JoinColumn(name="id",nullable=false)
+	@JoinColumn(name="id_propietario",nullable=false)
 	private Propietario propietario;
 	
 	@Column(name="dni")

@@ -22,7 +22,7 @@ public class Participante implements Serializable {
 	private Integer id;
 	
 	@ManyToOne
-	@JoinColumn(name="id",nullable=false)
+	@JoinColumn(name="id_jugador",nullable=false)
 	private Jugador jugador;
 	
 	@ManyToOne

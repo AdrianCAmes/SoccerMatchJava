@@ -29,6 +29,7 @@ public class Alquiler implements Serializable {
 	private Equipo equipo;	
 	
 	@ManyToOne
+	@JoinColumn(name = "id_cancha", nullable = false)
 	private Cancha cancha;	
 	
 	@Temporal(TemporalType.TIMESTAMP)

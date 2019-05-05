@@ -19,7 +19,7 @@ public class UsuarioRepository implements IUsuarioRepository,Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@PersistenceContext(unitName="SoccerMatchPU")
-	private EntityManager em;
+	public EntityManager em;
 	@Override
 	public Integer Insert(Usuario t) throws Exception {
 		// TODO Auto-generated method stub
@@ -47,7 +47,6 @@ public class UsuarioRepository implements IUsuarioRepository,Serializable{
 		return usuarios;
 	}
 
-	@Override
 	public Usuario FindById(Usuario t) throws Exception {
 		List<Usuario> usuarios=new ArrayList<>();
 		TypedQuery<Usuario> query=em.createQuery("select*from Usuario where t.id=?1",Usuario.class);

@@ -4,14 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>pe.com</groupId>
-		<artifactId>SoccerMatch</artifactId>
+		<artifactId>SoccerMatchJava</artifactId>
 		<version>1.0</version>
 	</parent>
 	<artifactId>SoccerMatchWeb</artifactId>
 	<packaging>war</packaging>
-	<properties>
-		<failOnMissingWebXml>false</failOnMissingWebXml>
-	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.faces</groupId>

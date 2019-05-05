@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,8 +19,10 @@ public class Propietario implements Serializable {
 	@Id
 	private Integer id;
 	
-	@JoinColumn(name = "propietario_id", nullable = false)
+
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="propietario")
+	@MapsId
+	@JoinColumn(name = "propietario_id", nullable = false)
 	private Usuario usuario;
 
 	public Integer getId() {
