@@ -11,7 +11,9 @@ import javax.inject.Named;
 import org.primefaces.event.SelectEvent;
 
 import pe.com.model.business.ICiudadService;
+import pe.com.model.business.IDepartamentoService;
 import pe.com.model.entity.Ciudad;
+import pe.com.model.entity.Departamento;
 import pe.com.util.Message;
 
 @Named
@@ -23,10 +25,15 @@ public class CiudadController implements Serializable{
 	@Inject
 	private ICiudadService CiudadService;
 	
+	@Inject
+	private IDepartamentoService DepartamentoService;
+	
 	private Ciudad Ciudad;
 	private Ciudad CiudadSelec;
-	
 	private List<Ciudad> Ciudads;
+	
+	private Departamento Departamento;
+	private List<Departamento> Departamentos;
 	
 	@PostConstruct
 	public void init() {
@@ -49,8 +56,9 @@ public class CiudadController implements Serializable{
 	public void saveCiudad() {
 		try {
 			//if(Ciudad.getId() != null)
-			Message.messageInfo("Ciudad guardada exitosamente");
+			Ciudad.setDepartamento(Departamento);
 			CiudadService.Insert(Ciudad);
+			Message.messageInfo("Ciudad guardada exitosamente");
 			loadCiudads();
 			clearForm();
 		} catch (Exception e) {
