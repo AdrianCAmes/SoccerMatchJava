@@ -27,11 +27,11 @@ public class Participante implements Serializable {
 	@Column(columnDefinition = "SMALLINT(4)")
 	private Integer id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_jugador",nullable=false)
 	private Jugador jugador;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_equipo",nullable=false)
 	private Equipo equipo;
 	

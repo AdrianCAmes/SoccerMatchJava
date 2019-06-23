@@ -24,11 +24,11 @@ public class DetalleParticipante implements Serializable {
 	@Column(columnDefinition = "SMALLINT(4)")
 	private Integer id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_alquiler",nullable=false)
 	private Alquiler alquiler;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_participante",nullable=false)
 	private Participante participante;
 	

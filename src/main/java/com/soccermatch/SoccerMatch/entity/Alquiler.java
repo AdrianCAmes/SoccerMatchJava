@@ -31,11 +31,11 @@ public class Alquiler implements Serializable {
 	@Column(columnDefinition = "SMALLINT(4)")
 	private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_equipo", nullable = false)
 	private Equipo equipo;	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cancha", nullable = false)
 	private Cancha cancha;	
 	

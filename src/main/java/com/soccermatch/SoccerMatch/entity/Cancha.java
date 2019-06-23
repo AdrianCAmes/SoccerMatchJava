@@ -31,11 +31,11 @@ public class Cancha implements Serializable{
 	@Column(columnDefinition = "SMALLINT(4)")
 	private int id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_propietario",nullable=false)
 	private Propietario propietario;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_calle",nullable=false)
 	private Calle calle;
 	

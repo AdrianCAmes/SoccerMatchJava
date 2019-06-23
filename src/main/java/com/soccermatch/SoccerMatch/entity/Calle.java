@@ -33,7 +33,7 @@ public class Calle implements Serializable {
 	@Column(name="nombre", length = 100, nullable=false)
 	private String nombre;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_distrito",nullable=false)
 	private Distrito distrito;
 	

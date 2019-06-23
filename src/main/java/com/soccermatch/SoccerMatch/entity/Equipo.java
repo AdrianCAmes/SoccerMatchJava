@@ -33,7 +33,7 @@ public class Equipo implements Serializable{
 	@Column(columnDefinition = "SMALLINT(4)")
 	private int id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_distrito")
 	private Distrito distrito;
 	

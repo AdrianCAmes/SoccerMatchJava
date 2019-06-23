@@ -33,7 +33,7 @@ public class Distrito implements Serializable {
 	@Column(name = "nombre", length = 100, nullable = false)
 	private String nombre;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_ciudad")
 	private Ciudad ciudad;
 	
