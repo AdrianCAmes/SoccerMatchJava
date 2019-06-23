@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.soccermatch.SoccerMatch.entity.Cancha;
 import com.soccermatch.SoccerMatch.repository.ICanchaRepository;
-import com.soccermatch.SoccerMatch.service.CrudService;
 import com.soccermatch.SoccerMatch.service.ICanchaService;
 
 @Service

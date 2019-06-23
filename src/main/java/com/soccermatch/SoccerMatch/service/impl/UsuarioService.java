@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.soccermatch.SoccerMatch.entity.Usuario;
 import com.soccermatch.SoccerMatch.repository.IUsuarioRepository;
-import com.soccermatch.SoccerMatch.service.CrudService;
 import com.soccermatch.SoccerMatch.service.IUsuarioService;
 @Service
 public class UsuarioService implements IUsuarioService{

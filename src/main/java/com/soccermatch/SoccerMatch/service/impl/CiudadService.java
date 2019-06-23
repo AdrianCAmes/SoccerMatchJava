@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.soccermatch.SoccerMatch.entity.Ciudad;
 import com.soccermatch.SoccerMatch.repository.ICiudadRepository;
-import com.soccermatch.SoccerMatch.service.CrudService;
 import com.soccermatch.SoccerMatch.service.ICiudadService;
 
 @Service
