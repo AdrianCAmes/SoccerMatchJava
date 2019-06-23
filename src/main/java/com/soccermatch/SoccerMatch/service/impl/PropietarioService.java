@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.soccermatch.SoccerMatch.entity.Propietario;
 import com.soccermatch.SoccerMatch.repository.IPropietarioRepository;
-import com.soccermatch.SoccerMatch.service.CrudService;
 import com.soccermatch.SoccerMatch.service.IPropietarioService;
 @Service
 public class PropietarioService implements IPropietarioService{

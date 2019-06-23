@@ -42,8 +42,8 @@ public class Usuario implements Serializable {
 	private Propietario propietario;
 	
 	@NotNull
-	@Min(value = 8, message = "el DNI debe tener 8 numeros")
-	@Max(value = 8, message = "el DNI debe tener 8 numeros")
+	@Min(value = 10000000, message = "el DNI debe tener 8 numeros")
+	@Max(value = 99999999, message = "el DNI debe tener 8 numeros")
 	@Column(name = "dni", nullable=false)
 	private int dni;
 
@@ -52,8 +52,8 @@ public class Usuario implements Serializable {
 	@Column(name = "nombre", length = 100, nullable = false)
 	private String nombre;
 
-	@Min(value = 7, message = "El numero de telefono debe tener entre 7 a 9 numeros")
-	@Max(value = 9, message = "El numero de telefono debe tener entre 7 a 9 numeros")
+	@Min(value = 1000000, message = "El numero de telefono debe tener entre 7 a 9 numeros")
+	@Max(value = 999999999, message = "El numero de telefono debe tener entre 7 a 9 numeros")
 	@Column(name = "num_telefono", nullable = false)
 	private int numtelefono;
 	
@@ -98,5 +98,23 @@ public class Usuario implements Serializable {
 	public void setNumtelefono(int numtelefono) {
 		this.numtelefono = numtelefono;
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 
 }

@@ -36,6 +36,7 @@ public class UsuarioRestController {
 			return new ResponseEntity< List<Usuario> >(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity< Usuario > fetchById(@PathVariable("id") Integer id) {
 		try {
