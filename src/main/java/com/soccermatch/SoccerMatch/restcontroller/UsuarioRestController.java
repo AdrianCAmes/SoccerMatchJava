@@ -42,7 +42,7 @@ public class UsuarioRestController {
 		try {
 			Optional<Usuario> usuario = usuarioservice.findById(id);
 			if(usuario.isPresent()) {
-				return new ResponseEntity< Usuario >(usuario.get(), HttpStatus.OK);
+				return new ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
 			} else {
 				return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
 			}

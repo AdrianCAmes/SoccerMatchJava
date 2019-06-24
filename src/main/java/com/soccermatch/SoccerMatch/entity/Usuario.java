@@ -30,15 +30,11 @@ public class Usuario implements Serializable {
 	private Integer id;
 
 	
-	@JoinColumn(name = "jugador_id", nullable = false)
-	@MapsId("id")
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="usuario")
 	private Jugador jugador;
 
 	
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="usuario")
-	@MapsId("id")
-	@JoinColumn(name = "propietario_id", nullable = false)
 	private Propietario propietario;
 	
 	@NotNull

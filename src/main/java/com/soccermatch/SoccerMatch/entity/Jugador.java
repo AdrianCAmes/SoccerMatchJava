@@ -29,12 +29,11 @@ public class Jugador implements Serializable {
 	private Integer id;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_jugador", nullable = false)
+	@JoinColumn(name = "id_usuario", nullable = false)
 	@NotNull
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "jugador", cascade = CascadeType.ALL)
-	@NotNull
 	private List<Participante> participante;
 
 	@NotEmpty(message = "ingrese direccion")
