@@ -53,7 +53,7 @@ public class Cancha implements Serializable{
 	private String direccion;
 	
 	@Min(value = 10)
-	@Max(value = 20)
+	@Max(value = 80)
 	@NotNull(message = "se debe colocar un precio a la hora")
 	@Column(name="precio_hora", columnDefinition = "TINYINT(2)", nullable = false)
 	private int precioHora;

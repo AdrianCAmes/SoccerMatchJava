@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table( name = "Participante" )
@@ -38,7 +37,6 @@ public class Participante implements Serializable {
 	@Column(name="es_administrador")
 	private Boolean esadministrador;
 
-	@NotNull
 	@OneToMany(mappedBy = "participante", cascade = CascadeType.ALL)
 	private List<DetalleParticipante> detalleparticipante;
 	

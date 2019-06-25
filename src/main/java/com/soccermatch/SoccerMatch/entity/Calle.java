@@ -29,7 +29,7 @@ public class Calle implements Serializable {
 	private Integer id;
 	
 	@NotEmpty(message = "ingrese nombre de la calle")
-	@Size(min = 8, max = 100, message = "El nombre de la calle debe estar entre 8 a 100 caracteres" )
+	@Size(min = 3, max = 100, message = "El nombre de la calle debe estar entre 3 a 100 caracteres" )
 	@Column(name="nombre", length = 100, nullable=false)
 	private String nombre;
 

@@ -19,13 +19,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soccermatch.SoccerMatch.entity.Propietario;
+import com.soccermatch.SoccerMatch.entity.Usuario;
 import com.soccermatch.SoccerMatch.service.IPropietarioService;
+import com.soccermatch.SoccerMatch.service.IUsuarioService;
 
 @RestController
 @RequestMapping("/Propietario")
 public class PropietarioRestController {
 	@Autowired
 	private IPropietarioService Propietarioservice;
+	@Autowired
+	private IUsuarioService usuarioService;
 	
 	@GetMapping( produces = MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity< List<Propietario> > fetchAll() {
@@ -53,13 +57,22 @@ public class PropietarioRestController {
 	@PostMapping( consumes = MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity<Propietario> save( @Valid @RequestBody Propietario Propietario ) {
 		try {
-			Propietario tmp = Propietarioservice.Update(Propietario);
+			if (Propietario.getUsuario().getId() != null) {
+				Optional<Usuario> usuario = usuarioService.findById(Propietario.getUsuario().getId());
+
+				if (usuario.isPresent()) {
+					Propietario.setUsuario(usuario.get());
+				}
+			}
+			
+			Propietario tmp = Propietarioservice.Insert(Propietario);
 			if( tmp != null ) {
 				return new ResponseEntity<Propietario>(HttpStatus.OK);
 			} else {
 				return new ResponseEntity<Propietario>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 			return new ResponseEntity<Propietario>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -70,6 +83,13 @@ public class PropietarioRestController {
 			Optional<Propietario> buscado = Propietarioservice.findById(Propietario.getId());
 			
 			if(buscado.isPresent()) {
+				if (Propietario.getUsuario().getId() != null) {
+					Optional<Usuario> usuario = usuarioService.findById(Propietario.getUsuario().getId());
+
+					if (usuario.isPresent()) {
+						Propietario.setUsuario(usuario.get());
+					}
+				}
 				Propietarioservice.Update(Propietario);
 				return new ResponseEntity<Object>(HttpStatus.OK);
 			} else {

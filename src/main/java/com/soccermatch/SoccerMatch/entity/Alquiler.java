@@ -40,7 +40,7 @@ public class Alquiler implements Serializable {
 	private Cancha cancha;	
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="hora_inicio")//con este tipo de dato no se mas colocar(mejor no meto la pata)
+	@Column(name="hora_inicio")
 	private Date horaInicio;
 	
 	@Min(value = 1, message = "minimo de alquiler 1 hora")
@@ -49,12 +49,12 @@ public class Alquiler implements Serializable {
 	private int numHoras;
 	
 	@Min(value = 0)
-	@Max(value = 36, message = "maximo de descuento 36") //suponiendo
+	@Max(value = 15, message = "maximo de descuento: 15%")
 	@Column(name="descuento", nullable = false)
 	private float descuento;	
 	
-	@Min(value = 20)
-	@Max(value = 80, message = "monto por las 4 horas y sin descuento es de 80 soles") //suponiendo
+	@Min(value = 10)
+	@Max(value = 320, message = "monto por las 4 horas y sin descuento es de 320 soles")
 	@Column(name="monto_total", nullable = false)
 	private float total;	
 	

@@ -52,7 +52,7 @@ public class Equipo implements Serializable{
 	@Column(name="descripcion", nullable = false) //no deberia tener limite de caracteres
 	private String descripcion;
 	
-	@Min(value = 12, message = "Solo se permite equipos formados 12 personas")
+	@Min(value = 1, message = "Solo se permite equipos formados 12 personas")
 	@Max(value = 12, message = "Solo se permite equipos formados 12 personas")
 	@Column(name="num_participantes", columnDefinition = "TINYINT(2)", nullable=false)
 	private int numParticipantes;
