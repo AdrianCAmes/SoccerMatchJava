@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -34,7 +35,8 @@ public class Equipo implements Serializable{
 	private int id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id_distrito")
+	@JoinColumn(name="id_distrito", nullable = false)
+	@NotNull(message = "Ingrese un distrito")
 	private Distrito distrito;
 	
 	@OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
@@ -49,7 +51,7 @@ public class Equipo implements Serializable{
 	private String nombre;
 	
 	@NotEmpty(message = "ingresar una descripcion")
-	@Column(name="descripcion", nullable = false) //no deberia tener limite de caracteres
+	@Column(name="descripcion", nullable = false)
 	private String descripcion;
 	
 	@Min(value = 1, message = "Solo se permite equipos formados 12 personas")
@@ -61,9 +63,6 @@ public class Equipo implements Serializable{
 	@Column(name="fecha_juego")
 	private Date fechaJuego;
 
-	
-	
-	
 	public int getId() {
 		return id;
 	}

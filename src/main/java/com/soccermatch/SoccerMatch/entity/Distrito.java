@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -34,7 +35,8 @@ public class Distrito implements Serializable {
 	private String nombre;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id_ciudad")
+	@JoinColumn(name="id_ciudad", nullable = false)
+	@NotNull(message = "Ingrese una ciudad")
 	private Ciudad ciudad;
 	
 	@OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL)

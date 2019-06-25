@@ -30,7 +30,7 @@ public class Jugador implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario", nullable = false)
-	@NotNull
+	@NotNull(message = "Ingrese un usuario")
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "jugador", cascade = CascadeType.ALL)

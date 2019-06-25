@@ -33,10 +33,12 @@ public class Cancha implements Serializable{
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_propietario",nullable=false)
+	@NotNull(message = "Ingrese un propietario")
 	private Propietario propietario;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_calle",nullable=false)
+	@NotNull(message = "Ingrese una calle")
 	private Calle calle;
 	
 	@OneToMany(mappedBy = "cancha", cascade = CascadeType.ALL)

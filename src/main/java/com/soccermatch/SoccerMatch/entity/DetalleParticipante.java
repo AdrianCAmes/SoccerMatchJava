@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table( name = "DetalleParticipante" )
@@ -26,17 +27,19 @@ public class DetalleParticipante implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_alquiler",nullable=false)
+	@NotNull(message = "Ingrese un alquiler")
 	private Alquiler alquiler;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_participante",nullable=false)
+	@NotNull(message = "Ingrese un participante")
 	private Participante participante;
 	
 	@Min(value = 0)
-	@Column(name="cuota", columnDefinition = "TINYINT(1)")
+	@Column(name="cuota", columnDefinition = "TINYINT(1)", nullable = false)
 	private int cuota;
 	
-	@Column(name="parte_pagada")
+	@Column(name="parte_pagada", nullable = false)
 	private Boolean pagado;
 
 	public Integer getId() {

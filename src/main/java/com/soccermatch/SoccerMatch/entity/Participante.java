@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table( name = "Participante" )
@@ -28,10 +29,12 @@ public class Participante implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_jugador",nullable=false)
+	@NotNull(message = "Ingrese un jugador")
 	private Jugador jugador;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_equipo",nullable=false)
+	@NotNull(message = "Ingrese un equipo")
 	private Equipo equipo;
 	
 	@Column(name="es_administrador")

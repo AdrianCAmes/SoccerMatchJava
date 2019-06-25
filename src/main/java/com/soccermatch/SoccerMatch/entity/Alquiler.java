@@ -19,6 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table( name = "Alquiler" )
@@ -33,14 +34,16 @@ public class Alquiler implements Serializable {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_equipo", nullable = false)
+	@NotNull(message = "Ingrese un equipo")
 	private Equipo equipo;	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cancha", nullable = false)
+	@NotNull(message = "Ingrese una cancha")
 	private Cancha cancha;	
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="hora_inicio")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="hora_inicio", nullable = false)
 	private Date horaInicio;
 	
 	@Min(value = 1, message = "minimo de alquiler 1 hora")
@@ -51,14 +54,14 @@ public class Alquiler implements Serializable {
 	@Min(value = 0)
 	@Max(value = 15, message = "maximo de descuento: 15%")
 	@Column(name="descuento", nullable = false)
-	private float descuento;	
+	private float descuento;
 	
 	@Min(value = 10)
 	@Max(value = 320, message = "monto por las 4 horas y sin descuento es de 320 soles")
 	@Column(name="monto_total", nullable = false)
 	private float total;	
 	
-	@Column(name="estado_pagado")
+	@Column(name="estado_pagado", nullable = false)
 	private Boolean estadoPagado;
 	
 	@OneToMany(mappedBy = "alquiler", cascade = CascadeType.ALL)

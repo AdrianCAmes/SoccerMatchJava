@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
@@ -35,6 +36,7 @@ public class Calle implements Serializable {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_distrito",nullable=false)
+	@NotNull(message = "Ingrese un distrito")
 	private Distrito distrito;
 	
 	@OneToMany(mappedBy = "calle", cascade = CascadeType.ALL)
